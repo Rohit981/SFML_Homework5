@@ -3,13 +3,15 @@
 using namespace sf;
 using namespace gm;
 
-Box::Box(const Vector2f& position, const Vector2f& size) : GameObject(position, size), direction(MovementDirection::None) {
+Box::Box(const Vector2f& position, const Vector2f& size) : GameObject(position, size), direction(MovementDirection::None) 
+{
 	body.setPosition(position);
+	body.setRotation(90);
 	body.setSize(size);
 }
 
 void Box::update(sf::RenderWindow& window, float deltaTime){
-	move(Vector2f(PlayerMovementSpeedPerSecond * direction * deltaTime, 0));
+	move(Vector2f(0, PlayerMovementSpeedPerSecond * direction * deltaTime));
 }
 
 void Box::render(sf::RenderWindow& window, float deltaTime) {

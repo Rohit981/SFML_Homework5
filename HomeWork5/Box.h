@@ -9,12 +9,11 @@ namespace gm {
 
     enum MovementDirection {
         None = 0,
-        Left = -1,
-        Right = 1
+        UP = -1,
+        DOWN = 1
     };
 
-    class Box :
-        public GameObject
+    class Box : public GameObject
     {
     protected:
         sf::RectangleShape body;

@@ -6,7 +6,7 @@ using namespace gm;
 using namespace sf;
 
 // Implement constructor, this will effectively be a setup function as the game gets more complex
-Game::Game() : window(VideoMode(GameWidth, GameHeight), "Game"), clock(), deltaTime(0), box1(Vector2f(250, 600), Vector2f(100, 30)), box2(Vector2f(350, 10), Vector2f(100, 30)){
+Game::Game() : window(VideoMode(GameWidth, GameHeight), "Game"), clock(), deltaTime(0), box1(Vector2f(50, 300), Vector2f(100, 30)), box2(Vector2f(620, 300), Vector2f(100, 30)), ball(Vector2f(350, 300), Vector2f(20, 20)) {
 	// Set our fps to 60
 	window.setFramerateLimit(60);
 }
@@ -42,19 +42,19 @@ void Game::handleInput() {
 			window.close();
 		// Handle keyboard input to move box 1
 		if (event.type == Event::KeyPressed) {
-			if (event.key.code == Keyboard::A) {
-				box1.setMovmentDirection(MovementDirection::Left);
+			if (event.key.code == Keyboard::W) {
+				box1.setMovmentDirection(MovementDirection::UP);
 			}
-			else if (event.key.code == Keyboard::D) {
-				box1.setMovmentDirection(MovementDirection::Right);
+			else if (event.key.code == Keyboard::S) {
+				box1.setMovmentDirection(MovementDirection::DOWN);
 			}
 		}
 
 		if (event.type == Event::KeyReleased) {
-			if (event.key.code == Keyboard::A && box1.getMovementDirection() == MovementDirection::Left) {
+			if (event.key.code == Keyboard::W && box1.getMovementDirection() == MovementDirection::UP) {
 				box1.setMovmentDirection(MovementDirection::None);
 			}
-			if (event.key.code == Keyboard::D && box1.getMovementDirection() == MovementDirection::Right) {
+			if (event.key.code == Keyboard::S && box1.getMovementDirection() == MovementDirection::DOWN) {
 				box1.setMovmentDirection(MovementDirection::None);
 			}
 		}
@@ -70,7 +70,7 @@ void Game::update()
 	box2.update(window, deltaTime);
 
 	// If the mouse has entered box 1 then color it green
-	if (box1.collide(Vector2f(Mouse::getPosition(window)))) {
+	if (box1.collide(Vector2f(ball.getPosition()))) {
 		box1.setFillColor(Color::Green);
 	}
 	else {
@@ -78,7 +78,7 @@ void Game::update()
 	}
 
 	// If the mouse has entered box 2 then color it green
-	if (box2.collide(Vector2f(Mouse::getPosition(window)))) {
+	if (box2.collide(Vector2f(ball.getPosition()))) {
 		box2.setFillColor(Color::Green);
 	}
 	else {
@@ -100,6 +100,7 @@ void Game::render() {
 	// Draw our boxes
 	box1.render(window, deltaTime);
 	box2.render(window, deltaTime);
+	ball.render(window, deltaTime);
 	
 	// Display the window buffer for this frame
 	window.display();
