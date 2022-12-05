@@ -1,7 +1,8 @@
 #ifndef SOUND_MANAGER_H
 #define SOUND_MANAGER_H
 
-#include "Ball.h"
+
+#include <SFML/Audio.hpp>
 
 namespace gm
 {
