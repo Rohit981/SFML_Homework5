@@ -1,2 +1,31 @@
-﻿  Game.cpp
+﻿  Ball.cpp
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.h(12,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.cpp(88,24): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.cpp(93,24): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.cpp(100,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.cpp(100,24): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.cpp(140,24): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+E:\SFML Projects\SFML_Homework5\HomeWork5\Ball.h(12,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   HomeWork5.vcxproj -> E:\SFML Projects\SFML_Homework5\Debug\HomeWork5.exe

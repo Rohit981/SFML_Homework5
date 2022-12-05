@@ -14,8 +14,12 @@
 #include <SFML/Main.hpp>
 
  /* Our Includes */
-#include "Box.h"
+#include "Paddle.h"
 #include "Ball.h"
+#include "PlayerController.h"
+#include "AIController.h"
+#include "UI.h"
+#include "SoundManager.h"
 
 // Place our classes, functions, variables, and so forth in their own namespace to avoid naming collisions
 namespace gm {
@@ -32,9 +36,24 @@ namespace gm {
 		sf::Clock clock;
 		float deltaTime;
 		// Our game objects
-		Box box1;
-		Box box2;
-		Ball ball;
+		Paddle*paddle1;
+		Paddle* paddle2;
+		Ball *ball;
+		Paddle*paddingTop;
+		Paddle*paddingBottom;
+		Paddle* paddingLeft;
+		Paddle* paddingRight;
+
+		//Controllers
+		PlayerController* playerController;
+		AIController* aiController;
+		UI* gameUI;
+		SoundManager* soundManager;
+
+		float testTime = 0;
+		
+
+
 		
 	public:
 		/* Protoypes */
@@ -46,6 +65,8 @@ namespace gm {
 		void handleInput();
 		void update();
 		void render();
+		void Setup();
+		void CollisionCheck();
 		// Destructor
 		~Game();
 	};

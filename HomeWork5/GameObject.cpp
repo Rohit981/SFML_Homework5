@@ -12,15 +12,33 @@ GameObject::GameObject(const Vector2f& position, const Vector2f& size) : positio
 
 
 // Our position getter, NOTE the const reference return and marking the method itself const
-const Vector2f& GameObject::getPosition() const {
+const Vector2f& GameObject::getPosition() const 
+{
 	return position;
 }
 
+const sf::Vector2f& gm::GameObject::getSize() const
+{
+	return size;
+}
+
 // Our position setter, takes a Vector2f by const reference
-void GameObject::setPosition(const Vector2f& position) {
+void GameObject::setPosition(const Vector2f& position)
+{
 	this->position = position;
-	collider.left = position.x;
+	
 	collider.top = position.y;
+	collider.left = position.x;
+	
+	
+}
+
+void gm::GameObject::setSize(const sf::Vector2f& size)
+{
+	this->size = size;
+
+	collider.height = size.y;
+	collider.width = size.x;
 }
 
 // Moves our game object relative to its current position

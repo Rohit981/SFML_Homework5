@@ -21,6 +21,8 @@ namespace gm {
 		// All GameObjects should have a position
 		sf::Vector2f position;
 		sf::FloatRect collider;
+		sf::Vector2f size;
+
 	public:
 		// Default constructor
 		GameObject();
@@ -37,8 +39,12 @@ namespace gm {
 		// Our position getter, NOTE the const reference return and marking the method itself const
 		virtual const sf::Vector2f& getPosition() const;
 
+		virtual const sf::Vector2f& getSize() const;
+
 		// Our position setter, NOTE the pass by const reference
 		virtual void setPosition(const sf::Vector2f& position);
+
+		virtual void setSize(const sf::Vector2f& size);
 
 		// Moves our game object relative to its current position
 		virtual void move(const sf::Vector2f& velocity);

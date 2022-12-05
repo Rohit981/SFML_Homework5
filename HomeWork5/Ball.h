@@ -7,7 +7,17 @@ namespace gm {
 class Ball :public GameObject
 {
 private:
-	sf::Vector2f velocity;
+	sf::Vector2f velocity = sf::Vector2f(-1,0);
+	int BallMovementSpeed = 300;
+	int MoveDirection = -1.f;
+	float ResetTimer = 0;
+	bool IsMoving = true;
+
+	const int MaxMoveDirection = 2;
+	const int MinMoveDirection = -2;
+	
+	
+
 
 protected:
 	sf::RectangleShape body;
@@ -24,11 +34,24 @@ public:
 	virtual void move(const sf::Vector2f& velocity) override;
 
 	virtual void setPosition(const sf::Vector2f& position) override;
+	virtual void setSize(const sf::Vector2f& size)override;
 
 	virtual void setVelocity(const sf::Vector2f& velocity);
 	virtual const sf::Vector2f& getVelocity() const;
 
-	void Bounce(const sf::Vector2f& velocity);
+	virtual void setDirection(const int MoveDirection);
+	virtual int getDirection() const;
+
+	void Bounce( const sf::Vector2f& BallPos, const sf::Vector2f& PaddlePos, const sf::Vector2f& PaddleSize, int SpeedIncrease);
+
+	void ResetBallPos(float deltaTime);
+
+	void MoveBall(float deltaTime);
+
+	int rebound = 0;
+
+	sf::Vector2f reflectionDir = sf::Vector2f(-1, 1);
+
 
 };
 
